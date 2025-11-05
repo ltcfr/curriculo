@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerador de Currículo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <h1 class="text-center mb-4">Gerador de Currículo</h1>
+      <form action="gerar.php" method="POST" id="form-curriculo">
+        <div class="card p-4 shadow-sm">
+          <!-- Seção: Dados Pessoais -->
+          <section class="dados-pessoais">
+            <h4>Dados Pessoais</h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nome" class="form-label">Nome Completo</label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="data-nascimento" class="form-label"
+                  >Data de Nascimento</label
+                >
+                <input
+                  type="date"
+                  id="data-nascimento"
+                  name="data_nascimento"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="idade" class="form-label">Idade</label>
+                <input
+                  type="text"
+                  id="idade"
+                  name="idade"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção: Contato -->
+          <section class="contato">
+            <h4 class="mt-4">Informações de Contato</h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input
+                  type="text"
+                  id="telefone"
+                  name="telefone"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="localizacao" class="form-label">Localização</label>
+                <input
+                  type="text"
+                  id="localizacao"
+                  name="localizacao"
+                  class="form-control"
+                  placeholder="Cidade, Estado, País"
+                />
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção: Objetivo -->
+          <section class="objetivo">
+            <h4 class="mt-4">Objetivo Profissional</h4>
+            <div class="mb-3">
+              <textarea
+                name="objetivo"
+                class="form-control"
+                rows="3"
+                placeholder="Descreva seu objetivo profissional"
+              ></textarea>
+            </div>
+          </section>
+
+          <!-- Seção: Formação Acadêmica -->
+          <section class="formacao">
+            <h4 class="mt-4">Formação Acadêmica</h4>
+            <div id="campo-formacao">
+              <div class="formacao-item mb-3">
+                <input
+                  type="text"
+                  name="formacao[]"
+                  class="form-control mb-2"
+                  placeholder="Ex: Administração - Universidade X (2018 - 2022)"
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-outline-primary mb-3"
+              id="adicionar-formacao"
+            >
+              + Adicionar Formação
+            </button>
+          </section>
+
+          <!-- Seção: Experiência Profissional -->
+          <section class="experiencia">
+            <h4 class="mt-4">Experiência Profissional</h4>
+            <div id="campo-experiencia">
+              <div class="experiencia-item mb-3">
+                <input
+                  type="text"
+                  name="experiencia[]"
+                  class="form-control mb-2"
+                  placeholder="Cargo e empresa (Ex: Estagiária - Empresa X)"
+                />
+                <input
+                  type="text"
+                  name="periodo_experiencia[]"
+                  class="form-control mb-2"
+                  placeholder="Período (Ex: 01/2024 - 12/2024)"
+                />
+                <textarea
+                  name="descricao_experiencia[]"
+                  class="form-control mb-2"
+                  rows="2"
+                  placeholder="Descreva as atividades realizadas"
+                ></textarea>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-outline-primary mb-3"
+              id="adicionar-experiencia"
+            >
+              + Adicionar Experiência
+            </button>
+          </section>
+
+          <!-- Seção: Habilidades -->
+          <section class="habilidades">
+            <h4 class="mt-4">Habilidades</h4>
+            <div id="campo-habilidades">
+              <div class="habilidade-item mb-3">
+                <input
+                  type="text"
+                  name="habilidades[]"
+                  class="form-control mb-2"
+                  placeholder="Ex: Organização"
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-outline-primary mb-3"
+              id="adicionar-habilidade"
+            >
+              + Adicionar Habilidade
+            </button>
+          </section>
+
+          <!-- Botão de envio -->
+          <div class="text-end">
+            <button type="submit" class="btn btn-success">
+              Gerar Currículo
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
